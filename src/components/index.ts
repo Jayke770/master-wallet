@@ -1,1 +1,6 @@
 export { default as Networks } from './Network'
+export { default as WalletSend } from './Wallet/send'
+export { default as WalletReceive } from './Wallet/receive'
+export { default as WalletBuy } from './Wallet/buy'
+export { default as WalletTokens } from './Wallet/tokens'
+export { default as Token } from './Wallet/tokens/token'

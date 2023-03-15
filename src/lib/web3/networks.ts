@@ -1,3 +1,4 @@
+//the first index will be the default network
 const networks = [
     {
         id: 'ethereum',

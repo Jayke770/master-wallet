@@ -4,11 +4,13 @@ interface NetWorkOptions {
     openPopOver?: boolean
 }
 interface WalletToken {
-    contractAddress: string,
+    coinid: string,
+    contractAddress?: string,
     symbol: string,
     decimal: number
 }
 interface WalletNetwork {
+    id: Web3NetWorks,
     name: string,
     symbol: string,
     tokens: WalletToken[]
@@ -16,6 +18,7 @@ interface WalletNetwork {
 interface Wallet {
     privateKey: string,
     address: string,
+    mnemonic?: string,
     created: number,
     networks: WalletNetwork[]
 }

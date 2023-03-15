@@ -1,25 +1,32 @@
-import { web3networks } from '../'
+import { Web3networks } from '../'
 import { fs, path } from '@tauri-apps/api'
 import moment from 'moment'
-import Web3js from 'web3'
+import { ethers } from 'ethers'
 const wallet = {
     create: (options: { network?: Web3NetWorks }) => {
         return new Promise<Wallet>(async (resolve, reject) => {
             try {
                 //if default the fist index of web3networks will be selected
                 if (options?.network === 'default') {
-                    const network = web3networks[0]
-                    const web3 = new Web3js(network?.rpc)
-                    const account = web3.eth.accounts.create()
+                    const network = Web3networks[0]
+                    const account = ethers.Wallet.createRandom()
                     const wallet: Wallet = {
                         address: account?.address,
                         privateKey: account?.privateKey,
+                        mnemonic: account?.mnemonic?.phrase,
                         created: parseInt(moment().format('x')),
                         networks: [
                             {
+                                id: 'default',
                                 name: network?.name,
                                 symbol: network?.symbol,
-                                tokens: []
+                                tokens: [
+                                    {
+                                        coinid: 'ethereum',
+                                        symbol: 'eth',
+                                        decimal: 18
+                                    }
+                                ]
                             }
                         ]
                     }
