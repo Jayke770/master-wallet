@@ -8,5 +8,6 @@ A Multi Chain Web3 Wallet
 
 - Non custodial wallet 
 - Multi Chain
+- Cross Platform (mobile coming soon)
 - more coming soon...
 
