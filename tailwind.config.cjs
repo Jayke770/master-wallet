@@ -5,7 +5,7 @@ const konstaConfig = require('konsta/config');
 module.exports = konstaConfig({
   konsta: {
     colors: {
-      'brand-bsc': '#4d3810',
+      'bsc': '#4d3810'
     }
   },
   content: [

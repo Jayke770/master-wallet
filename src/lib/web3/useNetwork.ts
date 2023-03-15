@@ -9,5 +9,8 @@ export default function useNetwork() {
     useEffect(() => {
         onGetNetwork()
     }, [])
-    return { network: currentNetwork, setNetwork: onSetNetwork }
+    return {
+        currentnetwork: currentNetwork,
+        setNetwork: onSetNetwork
+    }
 }

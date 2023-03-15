@@ -1,4 +1,3 @@
-export { default as Web3networks } from './web3/networks'
 export { default as useWallet } from './web3/useWallet'
 export { default as Wallet } from './web3/wallet'
 export { default as Coin } from './web3/coin'

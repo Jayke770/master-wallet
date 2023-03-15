@@ -20,11 +20,11 @@ export default function Token({ token }: { token: WalletToken }) {
             }
             title={data?.name || 'Loading...'}
             subtitle={
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-baseline">
                     {/* @ts-ignore */}
                     <span>{`$${data?.market_data.current_price['usd'].toLocaleString()}`}</span>
                     {/* @ts-ignore */}
-                    {data?.market_data?.price_change_percentage_24h > 0 ? <span className="text-teal-400">+{data?.market_data?.price_change_percentage_24h?.toFixed(2)}</span> : <span className="text-red-400">{data?.market_data?.price_change_percentage_24h?.toFixed(2)}</span>}
+                    {data?.market_data?.price_change_percentage_24h > 0 ? <span className="text-teal-400 text-xs">+{data?.market_data?.price_change_percentage_24h?.toFixed(2)}</span> : <span className="text-red-400 text-xs">{data?.market_data?.price_change_percentage_24h?.toFixed(2)}</span>}
                 </div>
             }
             after="0"

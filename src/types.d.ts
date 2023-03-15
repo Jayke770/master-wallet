@@ -1,7 +1,9 @@
-type Tab = 'wallet' | 'settings'
+type Tab = 'wallet' | 'settings' | 'wallet-connect'
 type Web3NetWorks = 'default' | 'ethereum' | 'bsc'
 interface NetWorkOptions {
-    openPopOver?: boolean
+    openActions?: boolean,
+    network?: string,
+    networkId?: string
 }
 interface WalletToken {
     coinid: string,

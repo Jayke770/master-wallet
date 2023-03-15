@@ -1,14 +1,14 @@
-import { Web3networks } from '../'
 import { fs, path } from '@tauri-apps/api'
 import moment from 'moment'
 import { ethers } from 'ethers'
+import { Config } from '../'
 const wallet = {
     create: (options: { network?: Web3NetWorks }) => {
         return new Promise<Wallet>(async (resolve, reject) => {
             try {
                 //if default the fist index of web3networks will be selected
                 if (options?.network === 'default') {
-                    const network = Web3networks[0]
+                    const network = Config.networks[0]
                     const account = ethers.Wallet.createRandom()
                     const wallet: Wallet = {
                         address: account?.address,
