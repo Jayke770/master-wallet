@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { fs, path } from '@tauri-apps/api'
-import { Wallet } from '../'
+import { Wallet, Config } from '../'
 export default function useWallet() {
     const [walletData, setWalletData] = useState<Wallet | undefined>()
     const onCheckWallet = async () => {
@@ -9,14 +9,13 @@ export default function useWallet() {
             const isWalletExist = await fs.exists(walletDir, { dir: fs.BaseDirectory.AppConfig })
             if (!isWalletExist) {
                 //create new wallet.json 
-                const WalletData = await Wallet.create({ network: 'default' })
+                const WalletData = await Wallet.create({ network: Config.defaultWallet as any })
                 setWalletData(WalletData)
             } else {
                 const walletData = await Wallet.get()
                 setWalletData(walletData)
             }
         } catch (e) {
-            console.log(e)
             setWalletData(undefined)
         }
     }

@@ -1,4 +1,3 @@
-export { default as Networks } from './Network'
 export { default as Wallet } from './Wallet'
 export { default as WalletSend } from './Wallet/send'
 export { default as WalletReceive } from './Wallet/receive'

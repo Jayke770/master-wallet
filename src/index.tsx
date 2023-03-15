@@ -16,16 +16,12 @@ export default function Home() {
     const [tab, setTab] = useState<Tab>('wallet')
     const onChangeTab = (value: Tab) => setTab(value)
     const { wallet } = useWallet()
-    const { currentnetwork } = useNetwork()
     return (
         <Page className="overflow-auto w-full h-full">
             <title>Home</title>
             <main className="flex h-full w-full">
                 {/* wallet */}
-                <Wallet
-                    network={currentnetwork || 'default'}
-                    show={tab === 'wallet'}
-                    wallet={wallet} />
+                <Wallet show={tab === 'wallet'} wallet={wallet} />
                 {/* settings */}
                 <Settings show={tab === 'settings'} />
                 {/* Wallet Connect */}

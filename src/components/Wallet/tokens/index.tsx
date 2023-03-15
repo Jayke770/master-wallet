@@ -12,6 +12,7 @@ export default function WalletTokens({ wallet, network }: { wallet?: Wallet, net
             </List>
             <div className="flex justify-start px-4 mt-4 py-2">
                 <Button
+                    disabled
                     outline
                     rounded
                     small

@@ -1,6 +1,11 @@
 type Tab = 'wallet' | 'settings' | 'wallet-connect'
-type Web3NetWorks = 'default' | 'ethereum' | 'bsc'
+type Web3NetWorks = 'ethereum' | 'binancecoin' | 'klay-token' | 'matic-network'
 interface NetWorkOptions {
+    openActions?: boolean,
+    network?: string,
+    networkId?: string
+}
+interface SelectedNetwork {
     openActions?: boolean,
     network?: string,
     networkId?: string
