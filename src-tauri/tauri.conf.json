@@ -40,7 +40,8 @@
         "tsp": false,
         "webviewFixedRuntimePath": null,
         "webviewInstallMode": {
-          "type": "offlineInstaller"
+          "type": "embedBootstrapper",
+          "silent": false
         },
         "wix": null
       },
