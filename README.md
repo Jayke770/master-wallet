@@ -1,7 +1,7 @@
 
 # Master Wallet
 
-A Multi Chain Web3 Wallet
+A Multi Chain Web3 Wallet Powered By Tauri + Vite + React
 
 
 ## Features
