@@ -1,4 +1,4 @@
-import { Card, Page, Tabbar, TabbarLink } from "konsta/react"
+import { Page, Tabbar, TabbarLink } from "konsta/react"
 import { IoWallet } from 'react-icons/io5'
 import { FaCog } from 'react-icons/fa'
 import { useState } from "react"
@@ -7,21 +7,19 @@ import {
     Wallet,
     WalletConnect
 } from "./components"
-import {
-    useWallet,
-    useNetwork
-} from './lib'
 import WalletConnectLogo from './assets/images/logos/walletconnect.png'
+import Helmet from 'react-helmet'
 export default function Home() {
     const [tab, setTab] = useState<Tab>('wallet')
     const onChangeTab = (value: Tab) => setTab(value)
-    const { wallet } = useWallet()
     return (
         <Page className="overflow-auto w-full h-full">
-            <title>Home</title>
+            <Helmet>
+                <title>Master Wallet | Home</title>
+            </Helmet>
             <main className="flex h-full w-full">
                 {/* wallet */}
-                <Wallet show={tab === 'wallet'} wallet={wallet} />
+                <Wallet show={tab === 'wallet'} />
                 {/* settings */}
                 <Settings show={tab === 'settings'} />
                 {/* Wallet Connect */}

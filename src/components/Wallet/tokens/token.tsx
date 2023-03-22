@@ -24,7 +24,7 @@ export default function Token({ token }: { token: WalletToken }) {
                     {/* @ts-ignore */}
                     <span>${`${data?.market_data.current_price['usd'].toLocaleString() || 0}`}</span>
                     {/* @ts-ignore */}
-                    {data?.market_data?.price_change_percentage_24h > 0 ? <span className="text-teal-400 text-xs">+{data?.market_data?.price_change_percentage_24h?.toFixed(2)}</span> : <span className="text-red-400 text-xs">{data?.market_data?.price_change_percentage_24h?.toFixed(2)}</span>}
+                    {data?.market_data?.price_change_percentage_24h > 0 ? <span className="text-teal-400 text-xs">+{data?.market_data?.price_change_percentage_24h?.toFixed(2)}%</span> : <span className="text-red-400 text-xs">{data?.market_data?.price_change_percentage_24h?.toFixed(2)}%</span>}
                 </div>
             }
             after="0"

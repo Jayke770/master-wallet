@@ -2,8 +2,9 @@ import { Card, Button, Actions, List, ListItem, Checkbox } from "konsta/react"
 import { WalletSend, WalletReceive, WalletBuy, WalletTokens } from ".."
 import { BsChevronDown } from 'react-icons/bs'
 import { useState, useEffect } from 'react'
-import { Config, useNetwork, Wallet } from '../../lib'
-export default function WalletInfo({ show, wallet }: { show?: boolean, wallet?: Wallet }) {
+import { Config, useNetwork, Wallet, useWallet } from '../../lib'
+export default function WalletInfo({ show }: { show?: boolean, wallet?: Wallet }) {
+    const { wallet } = useWallet()
     const { currentnetwork, setNetwork } = useNetwork()
     const [selectedNetwork, setSelectedNetwork] = useState<SelectedNetwork>()
     const onToggleNetworkActions = () => setSelectedNetwork({ ...selectedNetwork, openActions: !selectedNetwork?.openActions })
@@ -28,6 +29,7 @@ export default function WalletInfo({ show, wallet }: { show?: boolean, wallet?: 
                     })
                 }
                 setNetwork(networkData?.id as any)
+                setSelectedNetwork({ ...selectedNetwork, openActions: false })
             }
         }
     }
@@ -35,7 +37,6 @@ export default function WalletInfo({ show, wallet }: { show?: boolean, wallet?: 
         const networkData = Config.networks.find(x => x.id === currentnetwork)
         setSelectedNetwork({ ...selectedNetwork, network: networkData?.name, networkId: networkData?.id })
     }, [currentnetwork])
-    console.log('wallet', wallet)
     return (
         <>
             <div className={`${show ? 'animate__fadeInLeft flex' : 'hidden'} animate__animated ms-300 w-full flex-col gap-2 p-2`}>
@@ -54,7 +55,7 @@ export default function WalletInfo({ show, wallet }: { show?: boolean, wallet?: 
                             </Button>
                         </div>
                         <div className="flex flex-col">
-                            <div className="text-3xl text-center">$999999</div>
+                            <div className="text-3xl text-center">$999999999</div>
                         </div>
                         <div className="flex justify-center w-full gap-5">
                             <WalletSend />
