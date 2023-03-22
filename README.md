@@ -15,3 +15,5 @@ A Multi Chain Web3 Wallet Powered By Tauri + Vite + React
 
 - Wallet Connect Integration 
 - Send/Receive Crypto
+- Swap Crypto
+- Buy Crypto
