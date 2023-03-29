@@ -6,8 +6,8 @@ import {
     Settings,
     Wallet,
     WalletConnect
-} from "./components"
-import WalletConnectLogo from './assets/images/logos/walletconnect.png'
+} from "../components"
+import WalletConnectLogo from '../assets/images/logos/walletconnect.png'
 import Helmet from 'react-helmet'
 export default function Home() {
     const [tab, setTab] = useState<Tab>('wallet')

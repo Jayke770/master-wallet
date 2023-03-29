@@ -2,18 +2,21 @@ import React, { useEffect } from "react"
 import ReactDOM from "react-dom/client"
 import "./styles/globals.css"
 import 'animate.css'
-import { App, Onboard } from "./"
+import { App, Onboard, CreateWallet } from "./pages"
 import { App as KonstaApp } from 'konsta/react'
-import { useLocalstorageState } from "rooks"
+import { HashRouter, Routes, Route } from "react-router-dom"
 function MasterWallet() {
-  const [appState, setAppState] = useLocalstorageState<"new" | "old" | null>("appState", null)
-  useEffect(() => {
-    if (!appState) setAppState("new")
-  }, [appState])
   return (
     <React.StrictMode>
       <KonstaApp theme="material" dark safeAreas>
-        {appState === 'old' ? <App /> : <Onboard />}
+        <HashRouter>
+          <Routes>
+            <Route path='/' element={<App />} />
+            <Route path='/onboard' element={<Onboard />} />
+            {/* Wallet */}
+            <Route path="/wallet/create" element={<CreateWallet />} />
+          </Routes>
+        </HashRouter>
       </KonstaApp>
     </React.StrictMode>
   )
