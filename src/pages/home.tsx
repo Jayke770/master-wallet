@@ -1,7 +1,7 @@
 import { Page, Tabbar, TabbarLink } from "konsta/react"
 import { IoWallet } from 'react-icons/io5'
 import { FaCog } from 'react-icons/fa'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
     Settings,
     Wallet,
@@ -9,9 +9,16 @@ import {
 } from "../components"
 import WalletConnectLogo from '../assets/images/logos/walletconnect.png'
 import Helmet from 'react-helmet'
+import { useLocalstorageState } from "rooks"
+import { useNavigate } from 'react-router-dom'
 export default function Home() {
+    const nagivate = useNavigate()
     const [tab, setTab] = useState<Tab>('wallet')
     const onChangeTab = (value: Tab) => setTab(value)
+    const [appState] = useLocalstorageState<"new" | "old" | null>("appState", null)
+    useEffect(() => {
+        if (appState !== 'old') nagivate("/onboard")
+    }, [appState])
     return (
         <Page className="overflow-auto w-full h-full">
             <Helmet>
